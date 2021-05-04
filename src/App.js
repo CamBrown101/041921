@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import axios from "axios";
 import handsomeBasset from "./assets/handsomeBasset.jpeg";
@@ -20,7 +20,6 @@ function App() {
 
   const handleGetAnotherPup = () => {
     axios.get(API).then(function (response) {
-      console.log(response.data.message);
       setCurrentPup(response.data.message);
     });
   };
