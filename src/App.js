@@ -82,8 +82,8 @@ const Logo = styled.h1`
   user-select: none;
 `;
 
-const Button = styled.div`
-  --size: 10vmin;
+const Button = styled.button`
+  --size: 20vmin;
   background: #d7b90b;
   border: 5px solid red;
   border-radius: var(--size);
