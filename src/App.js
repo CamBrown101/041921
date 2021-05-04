@@ -20,8 +20,8 @@ function App() {
 
   const handleGetAnotherPup = () => {
     axios.get(API).then(function (response) {
-      console.log(response);
-      setCurrentPup("");
+      console.log(response.data.message);
+      setCurrentPup(response.data.message);
     });
   };
 
@@ -30,7 +30,12 @@ function App() {
       <Body>
         <Header>
           <Logo>Sphere Pups</Logo>
-          <Button>GET MORE PUPS</Button>
+          <Button
+            onClick={() => {
+              handleGetAnotherPup();
+            }}>
+            GET MORE PUPS
+          </Button>
         </Header>
 
         <Frame>
