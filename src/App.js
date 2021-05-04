@@ -18,6 +18,13 @@ const date = new Date();
 function App() {
   const [currentPup, setCurrentPup] = useState(handsomeBasset);
 
+  const handleGetAnotherPup = () => {
+    axios.get(API).then(function (response) {
+      console.log(response);
+      setCurrentPup("");
+    });
+  };
+
   return (
     <div>
       <Body>
