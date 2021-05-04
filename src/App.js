@@ -29,18 +29,19 @@ function App() {
       <Body>
         <Header>
           <Logo>Sphere Pups</Logo>
+        </Header>
+        <Frame>
+          <Image src={currentPup} />
+        </Frame>
+        <ButtonContainer>
+          <Button>Previous Pup</Button>
           <Button
             onClick={() => {
               handleGetAnotherPup();
             }}>
-            GET MORE PUPS
+            GET NEW PUP
           </Button>
-        </Header>
-
-        <Frame>
-          <Image src={currentPup} />
-        </Frame>
-
+        </ButtonContainer>
         <Footer>© {date.getFullYear()}</Footer>
       </Body>
     </div>
@@ -67,12 +68,17 @@ const Body = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-size: calc(10px + 2vmin);
   min-height: 100vh;
   padding: 40px;
 `;
 
 const Header = styled.div`
+  width: 80%;
+  margin-top: 30px;
+  margin-bottom: 50px;
   align-items: center;
   height: 10vmin;
   display: flex;
@@ -85,9 +91,11 @@ const Logo = styled.h1`
   pointer-events: none;
   user-select: none;
 `;
-
+const ButtonContainer = styled.div`
+  display: flex;
+`;
 const Button = styled.button`
-  --size: 20vmin;
+  --size: 15vmin;
   background: #d7b90b;
   border: 5px solid red;
   border-radius: var(--size);
