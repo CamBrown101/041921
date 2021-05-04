@@ -13,20 +13,22 @@ chance to shine. Let's make our button fetch from the provided api, and display 
 INFO: if there are issues using hooks, this may be helpful: https://github.com/facebook/react/issues/14484
 */
 
+const date = new Date();
+
 function App() {
   return (
     <div>
       <Body>
         <Header>
           <Logo>Sphere Pups</Logo>
-          <Button>GET MOAR PUPS</Button>
+          <Button>GET MORE PUPS</Button>
         </Header>
 
         <Frame>
           <Image src={handsomeBasset} />
         </Frame>
 
-        <Footer>© 1996</Footer>
+        <Footer>© {date.getFullYear()}</Footer>
       </Body>
     </div>
   );
