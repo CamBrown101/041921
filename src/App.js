@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-
-const handsomeBasset = require("./assets/handsomeBasset.jpeg");
+import axios from "axios";
+import handsomeBasset from "./assets/handsomeBasset.jpeg";
 
 const API = `https://dog.ceo/api/breeds/image/random`;
 
@@ -16,6 +16,8 @@ INFO: if there are issues using hooks, this may be helpful: https://github.com/f
 const date = new Date();
 
 function App() {
+  const [currentPup, setCurrentPup] = useState(handsomeBasset);
+
   return (
     <div>
       <Body>
@@ -25,7 +27,7 @@ function App() {
         </Header>
 
         <Frame>
-          <Image src={handsomeBasset} />
+          <Image src={currentPup} />
         </Frame>
 
         <Footer>© {date.getFullYear()}</Footer>
