@@ -99,7 +99,7 @@ const Header = styled.header`
 `;
 
 const Logo = styled.h1`
-  margin-top: 10px;
+  margin-top: 30px;
   animation: ${Animation} infinite 5s linear;
   border-bottom: 5px solid red;
   pointer-events: none;
