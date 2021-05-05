@@ -37,31 +37,29 @@ function App() {
   };
 
   return (
-    <div>
-      <Body>
-        <Header>
-          <Logo>Sphere Pups</Logo>
-        </Header>
-        <Frame>
-          <Image src={pupPictures[slide]} />
-        </Frame>
-        <ButtonContainer>
-          <Button
-            onClick={() => {
-              getPreviousPup();
-            }}>
-            LAST PUP
-          </Button>
-          <Button
-            onClick={() => {
-              handleGetAnotherPup();
-            }}>
-            GET NEW PUP
-          </Button>
-        </ButtonContainer>
-        <Footer>© {date.getFullYear()}</Footer>
-      </Body>
-    </div>
+    <Main>
+      <Header>
+        <Logo>Sphere Pups</Logo>
+      </Header>
+      <Frame>
+        <Image src={pupPictures[slide]} />
+      </Frame>
+      <ButtonContainer>
+        <Button
+          onClick={() => {
+            getPreviousPup();
+          }}>
+          LAST PUP
+        </Button>
+        <Button
+          onClick={() => {
+            handleGetAnotherPup();
+          }}>
+          GET NEW PUP
+        </Button>
+      </ButtonContainer>
+      <Footer>© {date.getFullYear()}</Footer>
+    </Main>
   );
 }
 
@@ -80,7 +78,7 @@ const Animation = keyframes`
   }
 `;
 
-const Body = styled.div`
+const Main = styled.main`
   background-color: #02208f;
   color: white;
   display: flex;
@@ -89,7 +87,7 @@ const Body = styled.div`
   align-items: center;
   font-size: calc(10px + 2vmin);
   min-height: 100vh;
-  padding: 40px;
+  padding: 20px;
 `;
 
 const Header = styled.header`
@@ -170,9 +168,9 @@ const Frame = styled.div`
 const Image = styled.img`
   align-self: center;
   border-radius: 5px;
-  height: auto;
+  height: 45vmin;
   margin: auto;
-  width: 50vmin;
+  width: auto;
 `;
 
 const Footer = styled.footer`
