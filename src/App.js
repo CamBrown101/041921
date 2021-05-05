@@ -16,7 +16,6 @@ INFO: if there are issues using hooks, this may be helpful: https://github.com/f
 const date = new Date();
 
 function App() {
-  // const [currentPup, setCurrentPup] = useState(handsomeBasset);
   const [slide, setSlide] = useState(0);
   const [pupPictures, setPupPictures] = useState([handsomeBasset]);
 
@@ -25,9 +24,16 @@ function App() {
       const pupPicturesClone = [...pupPictures];
       pupPicturesClone.push(response.data.message);
       setPupPictures(pupPicturesClone);
-      console.log(pupPictures);
       setSlide(slide + 1);
     });
+  };
+
+  const getPreviousPup = () => {
+    if (slide === 0) {
+      return;
+    } else {
+      setSlide(slide - 1);
+    }
   };
 
   return (
@@ -40,7 +46,12 @@ function App() {
           <Image src={pupPictures[slide]} />
         </Frame>
         <ButtonContainer>
-          <Button>LAST PUP</Button>
+          <Button
+            onClick={() => {
+              getPreviousPup();
+            }}>
+            LAST PUP
+          </Button>
           <Button
             onClick={() => {
               handleGetAnotherPup();
@@ -82,16 +93,15 @@ const Body = styled.div`
 `;
 
 const Header = styled.div`
-  width: 80%;
-  margin-top: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   align-items: center;
   height: 10vmin;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const Logo = styled.h1`
+  margin-top: 10px;
   animation: ${Animation} infinite 5s linear;
   border-bottom: 5px solid red;
   pointer-events: none;
@@ -165,7 +175,7 @@ const Image = styled.img`
   width: 50vmin;
 `;
 
-const Footer = styled.div`
+const Footer = styled.footer`
   display: flex;
   font-size: 16px;
   height: 20vmin;
