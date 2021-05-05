@@ -16,11 +16,17 @@ INFO: if there are issues using hooks, this may be helpful: https://github.com/f
 const date = new Date();
 
 function App() {
-  const [currentPup, setCurrentPup] = useState(handsomeBasset);
+  // const [currentPup, setCurrentPup] = useState(handsomeBasset);
+  const [slide, setSlide] = useState(0);
+  const [pupPictures, setPupPictures] = useState([handsomeBasset]);
 
   const handleGetAnotherPup = () => {
     axios.get(API).then(function (response) {
-      setCurrentPup(response.data.message);
+      const pupPicturesClone = [...pupPictures];
+      pupPicturesClone.push(response.data.message);
+      setPupPictures(pupPicturesClone);
+      console.log(pupPictures);
+      setSlide(slide + 1);
     });
   };
 
@@ -31,10 +37,10 @@ function App() {
           <Logo>Sphere Pups</Logo>
         </Header>
         <Frame>
-          <Image src={currentPup} />
+          <Image src={pupPictures[slide]} />
         </Frame>
         <ButtonContainer>
-          <Button>Previous Pup</Button>
+          <Button>LAST PUP</Button>
           <Button
             onClick={() => {
               handleGetAnotherPup();
