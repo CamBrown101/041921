@@ -92,7 +92,7 @@ const Body = styled.div`
   padding: 40px;
 `;
 
-const Header = styled.div`
+const Header = styled.header`
   margin-bottom: 30px;
   align-items: center;
   height: 10vmin;
